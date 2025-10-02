@@ -21,7 +21,7 @@ function Menu() {
       <table className="menu-table">
         <thead>
           <tr>
-            <th>Menu</th>
+            <th>Items</th>
             <th>Price</th>
           </tr>
         </thead>
