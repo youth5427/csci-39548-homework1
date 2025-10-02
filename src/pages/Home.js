@@ -1,9 +1,16 @@
 import { NavLink } from "react-router-dom";
 import "./Home.css";
+import { useState, useEffect } from "react";
 
 function Home() {
+  const slides = ["/hero-burger.png", "/hero-pizza.png"];
+  const [current, setCurrent] = useState(0);
+
   return (
-    <div className="hero" style={{ backgroundImage: "url(/HeroBurger.png)" }}>
+    <div
+      className="hero"
+      style={{ backgroundImage: `url(${slides[current]})` }}
+    >
       <div className="hero-inner">
         <div className="hero-intro">
           <h1>Fast Food Restaurant</h1>
@@ -17,9 +24,13 @@ function Home() {
             Order Now
           </NavLink>
           <div className="dots" role="tablist" aria-label="slides">
-            <button className="dot active" aria-label="slide 1"></button>
-            <button className="dot" aria-label="slide 2"></button>
-            <button className="dot" aria-label="slide 3"></button>
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                className={`dot ${current === index ? "active" : ""}`}
+                onClick={() => setCurrent(index)}
+              ></button>
+            ))}
           </div>
         </div>
       </div>
