@@ -9,4 +9,9 @@
 .menu-table {
   text-align: left;
   margin: 0 auto;
+  border-collapse: collapse;
+}
+.menu-table thead tr {
+  border-bottom: 2px dashed white;
+  font-size: large;
 }
