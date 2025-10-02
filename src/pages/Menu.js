@@ -18,7 +18,7 @@ function Menu() {
   return (
     <div className="menu-page">
       <h1>MENU</h1>
-      <table className="menu-talble">
+      <table className="menu-table">
         <thead>
           <tr>
             <th>Menu</th>

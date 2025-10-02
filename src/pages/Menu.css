@@ -1,8 +1,12 @@
 .menu-page {
+  background: black;
+  color: white;
   text-align: center;
   padding: 20px;
+  width: 100vw;
+  height: 100vh;
 }
-.menu-talble {
+.menu-table {
   text-align: left;
   margin: 0 auto;
 }
