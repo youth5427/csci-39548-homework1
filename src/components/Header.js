@@ -18,7 +18,7 @@ function Header() {
         <nav className="mid">
           <ul>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <NavLink to="/">HOME</NavLink>
             </li>
             <li>
               <NavLink to="/Menu">MENU</NavLink>
