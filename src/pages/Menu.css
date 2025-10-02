@@ -23,7 +23,24 @@
 
   height: 50vh;
 }
-.photo {
-  max-width: 30%;
-  max-height: 30%;
+.gallery-scroll {
+  display: flex;
+  gap: 16px;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+}
+.gallery-scroll::-webkit-scrollbar {
+  display: none;
+}
+.gallery-card {
+  flex: 0 0 auto;
+  width: 400px;
+  box-shadow: 1px 4px 20px rgba(255, 255, 255, 0.3);
+  padding: 0.5%;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }

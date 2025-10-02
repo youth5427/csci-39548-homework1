@@ -16,7 +16,12 @@ function Menu() {
     { name: "Cola", price: "$1.99" },
     { name: "Milkshake", price: "$3.99" },
   ];
+
+  // [Repeat Slides]
   const slides = ["/hero-burger.png", "/hero-chicken.png", "hero-pizza.png"];
+  const repeatCount = 10; // Number of repetitions
+  const repeatedSlides = Array(repeatCount).fill(slides).flat();
+
   const [current, setCurrent] = useState(0);
   return (
     <div className="menu-page">
@@ -41,12 +46,14 @@ function Menu() {
       </div>
       <div className="gallery-section">
         <h1>Gallery</h1>
-        <div className="gallery-slide">
-          <img
-            className="photo"
-            src={slides[current]}
-            alt={`slides-${current}`}
-          ></img>
+        <div className="gallery-scroll">
+          {repeatedSlides.map((src, i) => (
+            <figure key={i} className="gallery-card">
+              <a href={src} target="_blank">
+                <img src={src} alt={`slide-${i + 1}`}></img>
+              </a>
+            </figure>
+          ))}
         </div>
       </div>
     </div>
