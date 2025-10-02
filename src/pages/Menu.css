@@ -1,10 +1,10 @@
-.menu-page {
+.menu-section {
   background: black;
   color: white;
   text-align: center;
   padding-top: 10px;
 
-  height: 100vh;
+  height: 50vh;
 }
 .menu-table {
   text-align: left;
@@ -14,4 +14,16 @@
 .menu-table thead tr {
   border-bottom: 2px dashed white;
   font-size: large;
+}
+.gallery-section {
+  background: black;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+
+  height: 50vh;
+}
+.photo {
+  max-width: 30%;
+  max-height: 30%;
 }
