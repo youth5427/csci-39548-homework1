@@ -3,7 +3,7 @@ import "./Home.css";
 
 function Home() {
   return (
-    <div className="hero">
+    <div className="hero" style={{ backgroundImage: "url(/HeroBurger.png)" }}>
       <div className="hero-inner">
         <div className="hero-intro">
           <h1>Fast Food Restaurant</h1>
