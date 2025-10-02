@@ -5,23 +5,19 @@
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 .hero-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 64px 20px;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr; /* 좌:카피 좀 더 넓게, 우:이미지 */
-  align-items: center;
-  gap: 24px;
+  max-width: 700px;
+  margin: 100px 200px;
+  width: 100%;
 }
 
 .hero-intro {
   color: white;
 }
 
-.order {
+.hero-order {
   background: orange;
   color: white;
   text-decoration: none;
@@ -32,7 +28,7 @@
   letter-spacing: 0.4px;
   transition: 0.2s ease;
 }
-.order:hover {
+.heor-order:hover {
   color: black;
 }
 

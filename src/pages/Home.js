@@ -13,7 +13,7 @@ function Home() {
             ex doloremque, labore, sunt repellat dolore, iste magni quos nihil
             ducimus libero ipsam.
           </p>
-          <NavLink to="/" className="order">
+          <NavLink to="/" className="hero-order">
             Order Now
           </NavLink>
           <div className="dots" role="tablist" aria-label="slides">
