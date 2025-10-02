@@ -3,7 +3,7 @@ import "./Home.css";
 import { useState, useEffect } from "react";
 
 function Home() {
-  const slides = ["/hero-burger.png", "/hero-pizza.png"];
+  const slides = ["/hero-burger.png", "/hero-pizza.png", "hero-chicken.png"];
   const [current, setCurrent] = useState(0);
 
   return (
