@@ -18,7 +18,14 @@ function Menu() {
   ];
 
   // [Repeat Slides]
-  const slides = ["/hero-burger.png", "/hero-chicken.png", "hero-pizza.png"];
+  const slides = [
+    "/hero-burger.png",
+    "/hero-chicken.png",
+    "/hero-pizza.png",
+    "/Fries.png",
+    "/Milkshake.png",
+    "/Dining1.png",
+  ];
   const repeatCount = 10; // Number of repetitions
   const repeatedSlides = Array(repeatCount).fill(slides).flat();
 
