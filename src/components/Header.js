@@ -6,7 +6,15 @@ function Header() {
   return (
     <header className="header">
       <div className="header-inner">
-        <p className="left">Icon</p>
+        <div className="left">
+          <NavLink to="/">
+            <div
+              alt="Logo"
+              className="logo"
+              style={{ backgroundImage: "url(/icon.png)" }}
+            ></div>
+          </NavLink>
+        </div>
         <nav className="mid">
           <ul>
             <li>
