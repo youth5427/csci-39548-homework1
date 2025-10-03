@@ -3,26 +3,29 @@ import "./Contact.css";
 function Contact() {
   return (
     <div className="contact-page">
-      <h1>Contact with us!</h1>
+      <h1>Contact with Grilld!</h1>
       <div className="contact-section">
         <div className="profile-section">
           <img className="contact-logo" src="/icon.png"></img>
           <h1>Grilld</h1>
           <p className="contact-info">
+            695 Park Ave, New York, NY 10065<br></br>
             Phone: (332)258-1234<br></br>
             Email: SUHYEON.YOO33@myhunter.cuny.edu<br></br>
           </p>
         </div>
         <div className="right-section">
-          <h3>HISTORY</h3>
           <p className="contact-history">
-            Grilld was founded in 1998 by two college friends with a passion for
-            bold flavors. The first small-town shop quickly became popular for
-            its smoky grilled burgers. By 2005, Grilld expanded to several
-            cities and introduced convenient drive-thru service. In the 2010s,
-            the brand shifted toward eco-friendly packaging and healthier menu
-            choices. Today, Grilld is an one of the famous chains celebrated for
-            its fresh taste and fast service.
+            We’d love to hear from you!<br></br>
+            Whether you have a question, feedback, or just want to say hello,
+            our team is here to help. <br></br>
+            <br></br>
+            📍 Visit us at one of our locations, <br></br>📞 Call us directly,
+            or <br></br>
+            ✉️ Fill out the form below and we’ll get back to you as soon as
+            possible. <br></br>
+            <br></br>At Grilld, your voice matters—because great food starts
+            with happy customers.
           </p>
           <h3>Location</h3>
           <div
