@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Menu.css";
 
 function Menu() {
@@ -28,8 +28,21 @@ function Menu() {
   ];
   const repeatCount = 10; // Number of repetitions
   const repeatedSlides = Array(repeatCount).fill(slides).flat();
+  const galleryRef = useRef(null);
 
-  const [current, setCurrent] = useState(0);
+  // for mouse scroll
+  useEffect(() => {
+    const gallery = galleryRef.current;
+    const handleWheel = (e) => {
+      if (e.deltaY !== 0) {
+        e.preventDefault();
+        gallery.scrollLeft += e.deltaY;
+      }
+    };
+    gallery.addEventListener("wheel", handleWheel, { passive: false });
+    return () => gallery.removeEventListener("wheel", handleWheel);
+  }, []);
+
   return (
     <div className="menu-page">
       <div className="menu-section">
@@ -53,7 +66,7 @@ function Menu() {
       </div>
       <div className="gallery-section">
         <h1>Gallery</h1>
-        <div className="gallery-scroll">
+        <div className="gallery-scroll" ref={galleryRef}>
           {repeatedSlides.map((src, i) => (
             <figure key={i} className="gallery-card">
               <a href={src} target="_blank">
