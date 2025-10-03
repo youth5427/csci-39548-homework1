@@ -5,7 +5,8 @@
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  align-items: flex-start;
+  padding-top: 80xp;
+  transition: 1s ease;
 }
 .hero-inner {
   max-width: 700px;
@@ -27,6 +28,7 @@
   font-size: 14px;
   letter-spacing: 0.4px;
   transition: 0.2s ease;
+  margin-top: 20px;
 }
 .heor-order:hover {
   color: black;
@@ -47,4 +49,18 @@
 }
 .dot.active {
   background: orange;
+}
+/* For mobile */
+@media (max-width: 768px) {
+  .hero {
+    background-size: 0;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: black;
+    width: 50%;
+  }
+
+  .hero-inner {
+    margin: 40px 20px; /* 내부 컨텐츠 여백 줄이기 */
+  }
 }
