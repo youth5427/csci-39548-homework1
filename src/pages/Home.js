@@ -6,6 +6,14 @@ function Home() {
   const slides = ["/hero-burger.png", "/hero-pizza.png", "hero-chicken.png"];
   const [current, setCurrent] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, 3000); // 3sec
+
+    return () => clearInterval(interval);
+  }, [slides.length]);
+
   return (
     <div
       className="hero"
