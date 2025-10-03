@@ -7,6 +7,7 @@ import Contact from "./pages/Contact";
 import BookTable from "./pages/BookTable";
 
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 // import Footer from "./components/Footer";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Route path="/BookTable" element={<BookTable />} />
       </Routes>
       {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 }
