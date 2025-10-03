@@ -76,6 +76,7 @@
   color: white;
   font-size: 20px;
   cursor: pointer;
+  margin: 5px;
 }
 
 .icon-btn:hover {
