@@ -48,6 +48,58 @@ function Contact() {
           </div>
         </div>
       </div>
+      {/* --- Contact Form  --- */}
+      <h1 style={{ marginTop: 20 }}>Contact Form</h1>
+      <form className="contact-form">
+        <div className="field">
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            placeholder="Name"
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            placeholder="you@example.com"
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label htmlFor="phone">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            placeholder="(000)123-4567"
+            pattern="[0-9+\-() ]+"
+          />
+        </div>
+
+        <div className="field message-field">
+          <label htmlFor="message">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            placeholder="Send message"
+            required
+          />
+        </div>
+        <button type="submit" className="btn-primary">
+          Send Message
+        </button>
+      </form>
+
+      {/* --- /Contact Form --- */}
     </div>
   );
 }
