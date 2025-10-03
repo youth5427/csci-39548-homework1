@@ -21,7 +21,7 @@ function Home() {
             a flavor-packed experience, you’ve come to the right place. Sit
             back, enjoy, and let Grilld fire up your taste buds.
           </p>
-          <NavLink to="/" className="hero-order">
+          <NavLink to="/OrderOnline" className="hero-order">
             Order Now
           </NavLink>
           <div className="dots" role="tablist" aria-label="slides">
