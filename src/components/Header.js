@@ -29,9 +29,6 @@ function Header() {
             <li>
               <NavLink to="/Contact">CONTACT</NavLink>
             </li>
-            <li>
-              <NavLink to="/BookTable">BOOKTABLE</NavLink>
-            </li>
           </ul>
         </nav>
         <div className="right">
