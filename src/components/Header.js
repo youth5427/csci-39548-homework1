@@ -51,7 +51,7 @@ function Header() {
           <button className="icon-btn">
             <FiSearch />
           </button>
-          <NavLink to="/" className="order">
+          <NavLink to="/OrderOnline" className="order">
             {isMobile ? "Order" : "Order Online"}
           </NavLink>
         </div>

@@ -1,0 +1,38 @@
+.construction-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: black;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.construction-page h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: orange;
+}
+
+.construction-page p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.back-btn {
+  padding: 10px 20px;
+  background: orange;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.back-btn:hover {
+  background: white;
+  color: black;
+}
