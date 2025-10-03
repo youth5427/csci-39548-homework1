@@ -5,7 +5,8 @@
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  align-items: flex-start;
+  padding-top: 80px;
+  transition: 1s ease;
 }
 .hero-inner {
   max-width: 700px;
@@ -16,7 +17,10 @@
 .hero-intro {
   color: white;
 }
-
+.hero-text {
+  color: white;
+  transition: 1s ease;
+}
 .hero-order {
   background: orange;
   color: white;
@@ -26,14 +30,16 @@
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 0.4px;
-  transition: 0.2s ease;
+  transition: 1s ease;
+  display: inline-block;
 }
 .heor-order:hover {
   color: black;
 }
 
 .dots {
-  margin-top: 36px;
+  margin-top: 20px;
+  margin-left: 10px;
   display: flex;
   gap: 10px;
 }
@@ -47,4 +53,20 @@
 }
 .dot.active {
   background: orange;
+}
+@media (max-width: 768px) {
+  .hero {
+    background-size: auto;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-color: black;
+  }
+
+  .hero-inner {
+    margin: 40px 20px;
+  }
+
+  .hero-order {
+    margin-top: 10px;
+  }
 }
