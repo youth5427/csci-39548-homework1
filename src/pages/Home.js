@@ -13,12 +13,13 @@ function Home() {
     >
       <div className="hero-inner">
         <div className="hero-intro">
-          <h1>Fast Food Restaurant</h1>
-          <p>
-            Doloremque, itaque aperiam facilis rerum, commodi, temporibus
-            sapiente ad mollitia laborum quam quisquam esse error unde. Tempora
-            ex doloremque, labore, sunt repellat dolore, iste magni quos nihil
-            ducimus libero ipsam.
+          <h1>Welcome to Grilld</h1>
+          <p className="hero-text">
+            Freshly grilled, boldly flavored, and served fast—this is what we
+            stand for. At Grilld, every bite is made with care, from our smoky
+            burgers to our crispy sides. Whether you’re here for a quick meal or
+            a flavor-packed experience, you’ve come to the right place. Sit
+            back, enjoy, and let Grilld fire up your taste buds.
           </p>
           <NavLink to="/" className="hero-order">
             Order Now
