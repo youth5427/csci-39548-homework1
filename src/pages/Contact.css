@@ -20,25 +20,6 @@
   width: 100%;
   margin: 0 auto;
 }
-.profile-section {
-  flex: 3;
-  background: black;
-}
-.contact-logo {
-  width: 400px;
-  height: 200px;
-  margin: 0 auto;
-  object-fit: cover;
-  object-position: center;
-}
-
-.contact-info {
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  text-align: left;
-  padding: 0 2rem;
-}
 
 .right-section {
   flex: 7;

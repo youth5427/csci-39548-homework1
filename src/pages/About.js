@@ -1,19 +1,12 @@
 import "./About.css";
+import Profile from "../components/Profile";
 
 function About() {
   return (
     <div className="about-page">
       <h1>History of Grilld</h1>
       <div className="about-section">
-        <div className="profile-section">
-          <img className="about-logo" src="/icon.png"></img>
-          <h1>Grilld</h1>
-          <p className="about-info">
-            695 Park Ave, New York, NY 10065<br></br>
-            Phone: (332)258-1234<br></br>
-            Email: SUHYEON.YOO33@myhunter.cuny.edu<br></br>
-          </p>
-        </div>
+        <Profile></Profile>
         <div className="right-section">
           <p className="about-history">
             Grilld was founded in 1998 by two college friends with a passion for
