@@ -60,6 +60,11 @@
 .contact-history {
   text-align: left;
 }
+.contact-map {
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+}
 
 /* Contact Form*/
 .contact-form {
@@ -132,6 +137,11 @@
 
 @media (max-width: 768px) {
   .right-section {
-    padding: 16px 12px;
+    padding: 16px 25px;
+  }
+  .contact-map {
+    width: 90%;
+    height: 300px;
+    margin-top: 10px;
   }
 }
