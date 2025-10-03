@@ -8,7 +8,6 @@ import BookTable from "./pages/BookTable";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-// import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/BookTable" element={<BookTable />} />
       </Routes>
-      {/* <Footer /> */}
       <Footer />
     </Router>
   );
