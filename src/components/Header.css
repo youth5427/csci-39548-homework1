@@ -27,7 +27,14 @@
   display: flex;
   justify-content: center;
   gap: 30px;
-  list-style: none;
+}
+.hamburger {
+  display: none; /* 기본은 숨김 */
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
 }
 .mid ul {
   display: flex;
@@ -86,7 +93,40 @@
   letter-spacing: 0.4px;
   transition: 0.2s ease;
   margin-left: 10px;
+  transition: 1s ease;
 }
 .order:hover {
   color: black;
+}
+
+/* for Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block; /* 모바일에서만 보이기 */
+  }
+
+  .mid {
+    display: none; /* 기본 숨김 */
+    position: absolute;
+    top: 60px; /* header 아래 */
+
+    width: 100%;
+    background: black;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .mid.open {
+    display: flex; /* 햄버거 버튼 클릭 시 나타남 */
+  }
+
+  .mid ul {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .mid a {
+    font-size: 18px;
+    color: white;
+  }
 }

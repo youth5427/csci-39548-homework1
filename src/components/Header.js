@@ -1,8 +1,13 @@
+import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { FiUser, FiShoppingCart, FiSearch } from "react-icons/fi";
+import { useMediaQuery } from "react-responsive";
+import { FiUser, FiShoppingCart, FiSearch, FiMenu, FiX } from "react-icons/fi";
+
 import "./Header.css";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useMediaQuery({ maxWidth: 1024 });
   return (
     <header className="header">
       <div className="header-inner">
@@ -14,8 +19,13 @@ function Header() {
               style={{ backgroundImage: "url(/icon.png)" }}
             ></div>
           </NavLink>
+          {/* Hambergur for mobile */}
+          <button className="hamburger" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <FiX /> : <FiMenu />}
+          </button>
         </div>
-        <nav className="mid">
+
+        <nav className={`mid ${isOpen ? "open" : ""}`}>
           <ul>
             <li>
               <NavLink to="/">HOME</NavLink>
@@ -42,7 +52,7 @@ function Header() {
             <FiSearch />
           </button>
           <NavLink to="/" className="order">
-            Order Online
+            {isMobile ? "Order" : "Order Online"}
           </NavLink>
         </div>
       </div>
