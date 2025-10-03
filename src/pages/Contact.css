@@ -38,7 +38,7 @@
 
 .right-section {
   flex: 7;
-  background: #9a2121;
+  background: black;
   padding: 16px;
 }
 
@@ -52,4 +52,7 @@
   .right-section {
     width: 100%;
   }
+}
+.contact-history {
+  text-align: left;
 }

@@ -15,14 +15,14 @@ function Contact() {
         </div>
         <div className="right-section">
           <h3>HISTORY</h3>
-          <p>
+          <p className="contact-history">
             Grilld was founded in 1998 by two college friends with a passion for
             bold flavors. The first small-town shop quickly became popular for
             its smoky grilled burgers. By 2005, Grilld expanded to several
             cities and introduced convenient drive-thru service. In the 2010s,
             the brand shifted toward eco-friendly packaging and healthier menu
-            choices. Today, Grilld is an international chain celebrated for its
-            fresh taste and fast service.
+            choices. Today, Grilld is an one of the famous chains celebrated for
+            its fresh taste and fast service.
           </p>
           <h3>Location</h3>
           <div
