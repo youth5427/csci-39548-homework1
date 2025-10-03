@@ -42,15 +42,15 @@ function Header() {
           </ul>
         </nav>
         <div className="right">
-          <button className="icon-btn">
+          <NavLink to="/MyProfile" className="icon-btn">
             <FiUser />
-          </button>
-          <button className="icon-btn">
+          </NavLink>
+          <NavLink to="/MyProfile" className="icon-btn">
             <FiShoppingCart />
-          </button>
-          <button className="icon-btn">
+          </NavLink>
+          <NavLink to="/Search" className="icon-btn">
             <FiSearch />
-          </button>
+          </NavLink>
           <NavLink to="/OrderOnline" className="order">
             {isMobile ? "Order" : "Order Online"}
           </NavLink>
