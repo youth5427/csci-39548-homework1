@@ -6,6 +6,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import OrderOnline from "./pages/OrderOnline";
 import Myprofile from "./pages/Myprofile";
+import Mycart from "./pages/Mycart";
 import Search from "./pages/Search";
 
 import Header from "./components/Header";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Contact" element={<Contact />} />
         <Route path="/OrderOnline" element={<OrderOnline />} />
         <Route path="/Myprofile" element={<Myprofile />} />
+        <Route path="/Mycart" element={<Mycart />} />
         <Route path="/Search" element={<Search />} />
       </Routes>
       <Footer />

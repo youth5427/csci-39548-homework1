@@ -17,6 +17,7 @@ function Header() {
               alt="Logo"
               className="logo"
               style={{ backgroundImage: "url(/icon.png)" }}
+              onClick={() => setIsOpen(false)}
             ></div>
           </NavLink>
           {/* Hambergur for mobile */}
@@ -50,16 +51,32 @@ function Header() {
           </ul>
         </nav>
         <div className="right">
-          <NavLink to="/MyProfile" className="icon-btn">
+          <NavLink
+            to="/MyProfile"
+            className="icon-btn"
+            onClick={() => setIsOpen(false)}
+          >
             <FiUser />
           </NavLink>
-          <NavLink to="/MyProfile" className="icon-btn">
+          <NavLink
+            to="/Mycart"
+            className="icon-btn"
+            onClick={() => setIsOpen(false)}
+          >
             <FiShoppingCart />
           </NavLink>
-          <NavLink to="/Search" className="icon-btn">
+          <NavLink
+            to="/Search"
+            className="icon-btn"
+            onClick={() => setIsOpen(false)}
+          >
             <FiSearch />
           </NavLink>
-          <NavLink to="/OrderOnline" className="order">
+          <NavLink
+            to="/OrderOnline"
+            className="order"
+            onClick={() => setIsOpen(false)}
+          >
             {isMobile ? "Order" : "Order Online"}
           </NavLink>
         </div>
