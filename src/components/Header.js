@@ -28,16 +28,24 @@ function Header() {
         <nav className={`mid ${isOpen ? "open" : ""}`}>
           <ul>
             <li>
-              <NavLink to="/">HOME</NavLink>
+              <NavLink to="/" onClick={() => setIsOpen(false)}>
+                HOME
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/Menu">MENU</NavLink>
+              <NavLink to="/Menu" onClick={() => setIsOpen(false)}>
+                MENU
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/About">ABOUT</NavLink>
+              <NavLink to="/About" onClick={() => setIsOpen(false)}>
+                ABOUT
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/Contact">CONTACT</NavLink>
+              <NavLink to="/Contact" onClick={() => setIsOpen(false)}>
+                CONTACT
+              </NavLink>
             </li>
           </ul>
         </nav>
