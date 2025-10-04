@@ -29,7 +29,7 @@
   gap: 30px;
 }
 .hamburger {
-  display: none; /* 기본은 숨김 */
+  display: none;
   background: none;
   border: none;
   color: white;
@@ -103,13 +103,13 @@
 /* for Mobile */
 @media (max-width: 768px) {
   .hamburger {
-    display: block; /* 모바일에서만 보이기 */
+    display: block;
   }
 
   .mid {
-    display: none; /* 기본 숨김 */
+    display: none;
     position: absolute;
-    top: 60px; /* header 아래 */
+    top: 60px;
 
     width: 100%;
     background: black;
@@ -118,7 +118,8 @@
   }
 
   .mid.open {
-    display: flex; /* 햄버거 버튼 클릭 시 나타남 */
+    display: flex;
+    z-index: 999;
   }
 
   .mid ul {
