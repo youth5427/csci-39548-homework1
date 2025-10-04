@@ -42,7 +42,10 @@ function Footer() {
       </div>
 
       <div className="footer-bottom">
-        <p>&copy; 2025 Grilld. All rights reserved.</p>
+        <p>
+          &copy; 2025 Grilld. All rights reserved. This is a fictional
+          restaurant.
+        </p>
       </div>
     </footer>
   );
