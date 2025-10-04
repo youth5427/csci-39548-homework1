@@ -3,7 +3,8 @@
   background: black;
 }
 .about-logo {
-  width: 400px;
+  width: 100%;
+  max-width: 100%;
   height: 200px;
   margin: 0 auto;
   object-fit: cover;
@@ -11,17 +12,18 @@
 }
 
 .about-info {
-  max-width: 800px;
+  max-width: 100%;
   width: 100%;
   margin: 0 auto;
   text-align: left;
-  padding: 0 2rem;
+  padding-right: 2rem;
+  transition: all 0.5s ease-in-out;
+  transform: translateX(2rem);
 }
 
 @media (max-width: 768px) {
   .about-info {
-    padding: 0 1rem;
-
     text-align: center; /* 모바일에서는 중앙 정렬로 깔끔하게 */
+    transform: translateX(0rem); /* 시각적으로 가운데로 움직이는 효과 */
   }
 }
