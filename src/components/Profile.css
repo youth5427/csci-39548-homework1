@@ -16,14 +16,16 @@
   width: 100%;
   margin: 0 auto;
   text-align: left;
-  padding-right: 2rem;
-  transition: all 0.5s ease-in-out;
-  transform: translateX(2rem);
+  padding: 0 1rem 0 1rem;
+  transition: all 1s ease-in-out;
+
+  transform: translateX(0rem);
 }
 
 @media (max-width: 768px) {
   .about-info {
-    text-align: center; /* 모바일에서는 중앙 정렬로 깔끔하게 */
-    transform: translateX(0rem); /* 시각적으로 가운데로 움직이는 효과 */
+    text-align: center;
+    padding: 0 2rem 0 1rem;
+    transform: translateX(1rem);
   }
 }
