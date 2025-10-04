@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./Menu.css";
 
 function Menu() {
@@ -69,7 +69,7 @@ function Menu() {
         <div className="gallery-scroll" ref={galleryRef}>
           {repeatedSlides.map((src, i) => (
             <figure key={i} className="gallery-card">
-              <a href={src} target="_blank">
+              <a href={src} target="_blank" rel="noopener noreferrer">
                 <img src={src} alt={`slide-${i + 1}`}></img>
               </a>
             </figure>

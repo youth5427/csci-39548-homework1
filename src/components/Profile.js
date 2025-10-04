@@ -1,4 +1,3 @@
-import { FiUser, FiShoppingCart, FiSearch } from "react-icons/fi";
 import "./Profile.css";
 
 function Header() {
