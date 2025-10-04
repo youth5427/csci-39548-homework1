@@ -7,13 +7,15 @@ function UnderConstruction() {
 
   return (
     <div className="construction-page">
-      <h1>🚧 Page Under Construction 🚧</h1>
-      <p>
-        This page is currently under development. <br></br>See you sooon!
-      </p>
-      <button className="back-btn" onClick={() => navigate(-1)}>
-        ← Go Back
-      </button>
+      <div className="construction-section">
+        <h1>🚧 Page Under Construction 🚧</h1>
+        <p>
+          This page is currently under development. <br></br>See you sooon!
+        </p>
+        <button className="back-btn" onClick={() => navigate(-1)}>
+          ← Go Back
+        </button>
+      </div>
     </div>
   );
 }
