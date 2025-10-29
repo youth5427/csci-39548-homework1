@@ -21,18 +21,18 @@ function PriceToNumber(price) {
 
 function Menu() {
   const item = [
-    { name: "Cheese Burger", price: "$8.99" },
-    { name: "Bacon and Cheese Burger", price: "$9.99" },
+    { id: 0, name: "Cheese Burger", price: "$8.99" },
+    { id: 1, name: "Bacon and Cheese Burger", price: "$9.99" },
 
-    { name: "Medium Pepperoni Pizza", price: "$14.99" },
-    { name: "Large Pepperoni Pizza", price: "$16.99" },
+    { id: 2, name: "Medium Pepperoni Pizza", price: "$14.99" },
+    { id: 3, name: "Large Pepperoni Pizza", price: "$16.99" },
 
-    { name: "8-piece chicken", price: "$24.99" },
-    { name: "12-piece chicken", price: "$28.99" },
+    { id: 4, name: "8-piece chicken", price: "$24.99" },
+    { id: 5, name: "12-piece chicken", price: "$28.99" },
 
-    { name: "French Fires", price: "$3.99" },
-    { name: "Cola", price: "$1.99" },
-    { name: "Milkshake", price: "$3.99" },
+    { id: 6, name: "French Fires", price: "$3.99" },
+    { id: 7, name: "Cola", price: "$1.99" },
+    { id: 8, name: "Milkshake", price: "$3.99" },
   ];
 
   // [Repeat Slides]
@@ -59,11 +59,23 @@ function Menu() {
       cart[idx].qty += 1;
     } else {
       cart.push({
+        id: menuItem.id,
         name: menuItem.name,
         price: PriceToNumber(menuItem.price),
         stringPrice: menuItem.price,
         qty: 1,
       });
+    }
+    cart.sort((a, b) => a.id - b.id);
+    saveCart(cart);
+  }
+  function subFromCart(menuItem) {
+    const cart = loadCart();
+    const idx = cart.findIndex((c) => c.name === menuItem.name);
+
+    if (idx >= 0) {
+      cart[idx].qty -= 1;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
     }
 
     saveCart(cart);
@@ -104,7 +116,17 @@ function Menu() {
                     type="button"
                     onClick={() => addToCart(item)}
                   >
-                    Add
+                    +
+                  </button>
+                </td>
+                <td className="item-count">{item.qty}</td>
+                <td>
+                  <button
+                    className="add-btn"
+                    type="button"
+                    onClick={() => subFromCart(item)}
+                  >
+                    -
                   </button>
                 </td>
               </tr>
