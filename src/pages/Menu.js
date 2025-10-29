@@ -1,17 +1,21 @@
 import { useEffect, useRef } from "react";
 import "./Menu.css";
 
+function PriceToNumver(price) {
+  return price.replace(/[^0-9.]/g, "");
+}
+
 function Menu() {
   const item = [
     { name: "Cheese Burger", price: "$8.99" },
     { name: "Bacon and Cheese Burger", price: "$9.99" },
-    { name: "=====================", price: "====" },
+
     { name: "Medium Pepperoni Pizza", price: "$14.99" },
     { name: "Large Pepperoni Pizza", price: "$16.99" },
-    { name: "=====================", price: "====" },
+
     { name: "8-piece chicken", price: "$24.99" },
     { name: "12-piece chicken", price: "$28.99" },
-    { name: "=====================", price: "====" },
+
     { name: "French Fires", price: "$3.99" },
     { name: "Cola", price: "$1.99" },
     { name: "Milkshake", price: "$3.99" },
@@ -29,6 +33,9 @@ function Menu() {
   const repeatCount = 10; // Number of repetitions
   const repeatedSlides = Array(repeatCount).fill(slides).flat();
   const galleryRef = useRef(null);
+
+  // for cart
+  useEffect(() => {});
 
   // for mouse scroll
   useEffect(() => {
@@ -59,6 +66,11 @@ function Menu() {
               <tr key={index}>
                 <td className="item-name">{item.name}</td>
                 <td className="item-price">{item.price}</td>
+                <td>
+                  <button className="add-btn" type="button">
+                    Add
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
