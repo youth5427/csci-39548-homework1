@@ -1,7 +1,21 @@
 import { useEffect, useRef } from "react";
 import "./Menu.css";
 
-function PriceToNumver(price) {
+const KEY = "cart";
+
+// Local storage
+function loadCart() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    return raw ? JSON.parse(raw) : [];
+  } catch {
+    return [];
+  }
+}
+function saveCart(cart) {
+  localStorage.setItem(KEY, JSON.stringify(cart));
+}
+function PriceToNumber(price) {
   return price.replace(/[^0-9.]/g, "");
 }
 
@@ -37,6 +51,24 @@ function Menu() {
   // for cart
   useEffect(() => {});
 
+  function addToCart(menuItem) {
+    const cart = loadCart();
+    const idx = cart.findIndex((c) => c.name === menuItem.name);
+
+    if (idx >= 0) {
+      cart[idx].qty += 1;
+    } else {
+      cart.push({
+        name: menuItem.name,
+        price: PriceToNumber(menuItem.price),
+        stringPrice: menuItem.price,
+        qty: 1,
+      });
+    }
+
+    saveCart(cart);
+  }
+
   // for mouse scroll
   useEffect(() => {
     const gallery = galleryRef.current;
@@ -67,7 +99,11 @@ function Menu() {
                 <td className="item-name">{item.name}</td>
                 <td className="item-price">{item.price}</td>
                 <td>
-                  <button className="add-btn" type="button">
+                  <button
+                    className="add-btn"
+                    type="button"
+                    onClick={() => addToCart(item)}
+                  >
                     Add
                   </button>
                 </td>
