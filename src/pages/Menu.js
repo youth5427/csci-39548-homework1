@@ -48,7 +48,7 @@ function Menu() {
   const repeatedSlides = Array(repeatCount).fill(slides).flat();
   const galleryRef = useRef(null);
 
-  // for cart
+  // for loading cart
   useEffect(() => {});
 
   function addToCart(menuItem) {
@@ -114,9 +114,9 @@ function Menu() {
                   <button
                     className="add-btn"
                     type="button"
-                    onClick={() => addToCart(item)}
+                    onClick={() => subFromCart(item)}
                   >
-                    +
+                    -
                   </button>
                 </td>
                 <td className="item-count">{item.qty}</td>
@@ -124,9 +124,9 @@ function Menu() {
                   <button
                     className="add-btn"
                     type="button"
-                    onClick={() => subFromCart(item)}
+                    onClick={() => addToCart(item)}
                   >
-                    -
+                    +
                   </button>
                 </td>
               </tr>
