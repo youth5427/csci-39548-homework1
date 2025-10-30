@@ -41,6 +41,13 @@ function Menu() {
   // for loading cart
   useEffect(() => {
     setCart(loadCart());
+
+    // Real-time synchronization
+    const onStorage = (e) => {
+      if (e.key === KEY) setCart(loadCart());
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
   }, []);
 
   const getQty = (id) => {
@@ -85,6 +92,7 @@ function Menu() {
   // for mouse scroll
   useEffect(() => {
     const gallery = galleryRef.current;
+    if (!gallery) return;
     const handleWheel = (e) => {
       if (e.deltaY !== 0) {
         e.preventDefault();

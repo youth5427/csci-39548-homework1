@@ -23,6 +23,11 @@ function Mycart() {
     setCart(loadCart());
 
     // Real-time synchronization
+    const onStorage = (e) => {
+      if (e.key === KEY) setCart(loadCart());
+    };
+    window.addEventListener("storage", onStorage);
+    return () => window.removeEventListener("storage", onStorage);
   }, []);
 
   const sync = (nextCart) => {
