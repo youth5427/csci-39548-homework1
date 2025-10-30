@@ -52,6 +52,10 @@ function Mycart() {
     sync(cart);
   }
 
+  const totalQty = cart.reduce((s, it) => s + it.qty, 0);
+  const totalSum = cart.reduce((s, it) => s + it.price * it.qty, 0);
+  const Total = totalSum / 100;
+
   return (
     <div className="cart-page">
       <div className="cart-section">
@@ -87,6 +91,9 @@ function Mycart() {
               );
             })}
           </tbody>
+          <div style={{ marginTop: 24, textAlign: "right", fontWeight: 700 }}>
+            Total quantity: {totalQty} counts &nbsp;|&nbsp; Total: ${Total}
+          </div>
         </table>
       </div>
     </div>
