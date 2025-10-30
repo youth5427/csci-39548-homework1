@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import UnderConstruction from "../components/UnderConstruction";
 import "./Mycart.css";
 
 const KEY = "cart";
