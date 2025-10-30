@@ -25,6 +25,25 @@
   font-weight: 700;
 }
 
+.cart-order {
+  background: orange;
+  color: white;
+  text-decoration: none;
+
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.4px;
+  transition: 1s ease;
+  display: inline-block;
+  width: 30%;
+  padding: 10px 18px;
+  margin: 20px;
+}
+.cart-order:hover {
+  color: black;
+}
+
 /* for Mobile */
 @media (max-width: 768px) {
   .cart-total {

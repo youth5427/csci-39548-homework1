@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom";
 import "./Mycart.css";
 import CartCompo from "../components/CartCompo";
 
@@ -9,10 +8,6 @@ function Mycart() {
 
       <div className="cart-content">
         <CartCompo />
-
-        <NavLink to="/OrderOnline" className="cart-order">
-          Order Now
-        </NavLink>
       </div>
     </div>
   );

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import "./CartCompo.css";
 
 const KEY = "cart";
@@ -62,47 +63,66 @@ function CartCompo() {
 
   return (
     <div className="cart-section">
-      <table className="cart-table">
-        <thead>
-          <tr>
-            <th>Item</th>
-            <th>Price</th>
-            <th style={{ textAlign: "center" }}>Qty</th>
-            <th style={{ textAlign: "right" }}>Subtotal</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cart.map((it) => {
-            const subtotal = (it.price * it.qty) / 100;
-            return (
+      {!cart || cart.length === 0 ? (
+        <div className="cart-empty">
+          <p>Your cart is empty!</p>
+          <NavLink to="/Menu" className="cart-order">
+            Back to Menu
+          </NavLink>
+        </div>
+      ) : (
+        <div className="cart-valid">
+          <table className="cart-table">
+            <thead>
               <tr>
-                <td>{it.name}</td>
-                <td>${(it.price / 100).toFixed(2)}</td>
-                <td>
-                  <button className="add-btn" onClick={() => subFromCart(it)}>
-                    -
-                  </button>
-                  <span>{it.qty}</span>
-                  <button className="add-btn" onClick={() => addToCart(it)}>
-                    +
-                  </button>
-                </td>
-                <td style={{ textAlign: "right" }}>${subtotal.toFixed(2)}</td>
+                <th>Item</th>
+                <th>Price</th>
+                <th style={{ textAlign: "center" }}>Qty</th>
+                <th style={{ textAlign: "right" }}>Subtotal</th>
               </tr>
-            );
-          })}
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={4} className="cart-total">
-              <div>
-                <div>Total quantity: {totalQty} counts</div>
-                <div>Total: ${Total}</div>
-              </div>
-            </td>
-          </tr>
-        </tfoot>
-      </table>
+            </thead>
+            <tbody>
+              {cart.map((it) => {
+                const subtotal = (it.price * it.qty) / 100;
+                return (
+                  <tr>
+                    <td>{it.name}</td>
+                    <td>${(it.price / 100).toFixed(2)}</td>
+                    <td>
+                      <button
+                        className="add-btn"
+                        onClick={() => subFromCart(it)}
+                      >
+                        -
+                      </button>
+                      <span>{it.qty}</span>
+                      <button className="add-btn" onClick={() => addToCart(it)}>
+                        +
+                      </button>
+                    </td>
+                    <td style={{ textAlign: "right" }}>
+                      ${subtotal.toFixed(2)}
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan={4} className="cart-total">
+                  <div>
+                    <div>Total quantity: {totalQty} counts</div>
+                    <div>Total: ${Total}</div>
+                  </div>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+          <NavLink to="/OrderOnline" className="cart-order">
+            Order Now
+          </NavLink>
+        </div>
+      )}
     </div>
   );
 }
