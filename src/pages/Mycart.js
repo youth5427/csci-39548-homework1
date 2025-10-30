@@ -25,30 +25,30 @@ function Mycart() {
     // Real-time synchronization
   }, []);
 
-  const sync = (cart) => {
-    cart.sort((a, b) => (a.id ?? 1e9) - (b.id ?? 1e9));
-    saveCart(cart);
-    setCart([...cart]);
+  const sync = (nextCart) => {
+    nextCart.sort((a, b) => (a.id ?? 1e9) - (b.id ?? 1e9));
+    saveCart(nextCart);
+    setCart([...nextCart]);
   };
 
   function addToCart(menuItem) {
-    const cart = loadCart();
-    const idx = cart.findIndex((c) => c.name === menuItem.name);
+    const nextCart = [...cart];
+    const idx = nextCart.findIndex((c) => c.id === menuItem.id);
 
     if (idx >= 0) {
-      cart[idx].qty += 1;
+      nextCart[idx].qty += 1;
     }
-    sync(cart);
+    sync(nextCart);
   }
   function subFromCart(menuItem) {
-    const cart = loadCart();
-    const idx = cart.findIndex((c) => c.name === menuItem.name);
+    const nextCart = [...cart];
+    const idx = nextCart.findIndex((c) => c.id === menuItem.id);
 
     if (idx >= 0) {
-      cart[idx].qty -= 1;
-      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      nextCart[idx].qty -= 1;
+      if (nextCart[idx].qty <= 0) nextCart.splice(idx, 1);
     }
-    sync(cart);
+    sync(nextCart);
   }
 
   const totalQty = cart.reduce((s, it) => s + it.qty, 0);

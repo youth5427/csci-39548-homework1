@@ -48,20 +48,20 @@ function Menu() {
     return found ? found.qty : 0;
   };
 
-  const sync = (cart) => {
-    cart.sort((a, b) => (a.id ?? 1e9) - (b.id ?? 1e9));
-    saveCart(cart);
-    setCart([...cart]);
+  const sync = (nextCart) => {
+    nextCart.sort((a, b) => (a.id ?? 1e9) - (b.id ?? 1e9));
+    saveCart(nextCart);
+    setCart([...nextCart]);
   };
 
   function addToCart(menuItem) {
-    const cart = loadCart();
-    const idx = cart.findIndex((c) => c.id === menuItem.id);
+    const nextCart = [...cart];
+    const idx = nextCart.findIndex((c) => c.id === menuItem.id);
 
     if (idx >= 0) {
-      cart[idx].qty += 1;
+      nextCart[idx].qty += 1;
     } else {
-      cart.push({
+      nextCart.push({
         id: menuItem.id,
         name: menuItem.name,
         price: PriceToNumber(menuItem.price),
@@ -69,17 +69,17 @@ function Menu() {
         qty: 1,
       });
     }
-    sync(cart);
+    sync(nextCart);
   }
   function subFromCart(menuItem) {
-    const cart = loadCart();
-    const idx = cart.findIndex((c) => c.id === menuItem.id);
+    const nextCart = [...cart];
+    const idx = nextCart.findIndex((c) => c.id === menuItem.id);
 
     if (idx >= 0) {
-      cart[idx].qty -= 1;
-      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+      nextCart[idx].qty -= 1;
+      if (nextCart[idx].qty <= 0) nextCart.splice(idx, 1);
     }
-    sync(cart);
+    sync(nextCart);
   }
 
   // for mouse scroll
@@ -104,13 +104,15 @@ function Menu() {
             <tr>
               <th>Items</th>
               <th>Price</th>
+              <th></th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
             {item.map((item, index) => {
               const qty = getQty(item.id);
               return (
-                <tr key={index}>
+                <tr key={index.id}>
                   <td className="item-name">{item.name}</td>
                   <td className="item-price">{item.price}</td>
                   <td>
