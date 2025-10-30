@@ -92,9 +92,16 @@ function CartCompo() {
             );
           })}
         </tbody>
-        <div style={{ marginTop: 24, textAlign: "right", fontWeight: 700 }}>
-          Total quantity: {totalQty} counts &nbsp;|&nbsp; Total: ${Total}
-        </div>
+        <tfoot>
+          <tr>
+            <td colSpan={4} className="cart-total">
+              <div>
+                <div>Total quantity: {totalQty} counts</div>
+                <div>Total: ${Total}</div>
+              </div>
+            </td>
+          </tr>
+        </tfoot>
       </table>
     </div>
   );
