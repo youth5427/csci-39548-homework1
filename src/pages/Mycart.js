@@ -64,10 +64,10 @@ function Mycart() {
         <table className="cart-table">
           <thead>
             <tr>
-              <th style={{ textAlign: "left" }}>Item</th>
-              <th>Unit</th>
-              <th>Qty</th>
-              <th>Subtotal</th>
+              <th>Item</th>
+              <th>Price</th>
+              <th style={{ textAlign: "center" }}>Qty</th>
+              <th style={{ textAlign: "right" }}>Subtotal</th>
             </tr>
           </thead>
           <tbody>
@@ -75,9 +75,9 @@ function Mycart() {
               const subtotal = (it.price * it.qty) / 100;
               return (
                 <tr>
-                  <th>{it.name}</th>
-                  <th>{it.price / 100}</th>
-                  <th>
+                  <td>{it.name}</td>
+                  <td>${(it.price / 100).toFixed(2)}</td>
+                  <td>
                     <button className="add-btn" onClick={() => subFromCart(it)}>
                       -
                     </button>
@@ -85,8 +85,8 @@ function Mycart() {
                     <button className="add-btn" onClick={() => addToCart(it)}>
                       +
                     </button>
-                  </th>
-                  <th>{subtotal}</th>
+                  </td>
+                  <td style={{ textAlign: "right" }}>${subtotal.toFixed(2)}</td>
                 </tr>
               );
             })}
