@@ -16,7 +16,7 @@ function saveCart(cart) {
   localStorage.setItem(KEY, JSON.stringify(cart));
 }
 function PriceToNumber(price) {
-  return price.replace(/[^0-9.]/g, "");
+  return Number(price.replace(/[^0-9.]/g, "")) * 100;
 }
 
 function Menu() {
@@ -77,7 +77,7 @@ function Menu() {
       cart[idx].qty -= 1;
       if (cart[idx].qty <= 0) cart.splice(idx, 1);
     }
-
+    cart.sort((a, b) => a.id - b.id);
     saveCart(cart);
   }
 

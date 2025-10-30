@@ -26,6 +26,32 @@ function Mycart() {
     // Real-time synchronization
   }, []);
 
+  const sync = (cart) => {
+    cart.sort((a, b) => (a.id ?? 1e9) - (b.id ?? 1e9));
+    saveCart(cart);
+    setCart([...cart]);
+  };
+
+  function addToCart(menuItem) {
+    const cart = loadCart();
+    const idx = cart.findIndex((c) => c.name === menuItem.name);
+
+    if (idx >= 0) {
+      cart[idx].qty += 1;
+    }
+    sync(cart);
+  }
+  function subFromCart(menuItem) {
+    const cart = loadCart();
+    const idx = cart.findIndex((c) => c.name === menuItem.name);
+
+    if (idx >= 0) {
+      cart[idx].qty -= 1;
+      if (cart[idx].qty <= 0) cart.splice(idx, 1);
+    }
+    sync(cart);
+  }
+
   return (
     <div className="cart-page">
       <div className="cart-section">
@@ -42,15 +68,19 @@ function Mycart() {
           </thead>
           <tbody>
             {cart.map((it) => {
-              const subtotal = it.price * it.qty;
+              const subtotal = (it.price * it.qty) / 100;
               return (
                 <tr>
                   <th>{it.name}</th>
                   <th>{it.price}</th>
                   <th>
-                    <button className="add-btn">-</button>
+                    <button className="add-btn" onClick={() => subFromCart(it)}>
+                      -
+                    </button>
                     <span>{it.qty}</span>
-                    <button className="add-btn">+</button>
+                    <button className="add-btn" onClick={() => addToCart(it)}>
+                      +
+                    </button>
                   </th>
                   <th>{subtotal}</th>
                 </tr>
