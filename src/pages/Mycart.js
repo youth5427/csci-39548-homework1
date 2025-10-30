@@ -72,7 +72,7 @@ function Mycart() {
               return (
                 <tr>
                   <th>{it.name}</th>
-                  <th>{it.price}</th>
+                  <th>{it.price / 100}</th>
                   <th>
                     <button className="add-btn" onClick={() => subFromCart(it)}>
                       -

@@ -15,6 +15,7 @@ function loadCart() {
 function saveCart(cart) {
   localStorage.setItem(KEY, JSON.stringify(cart));
 }
+// save as cent
 function PriceToNumber(price) {
   return Number(price.replace(/[^0-9.]/g, "")) * 100;
 }
