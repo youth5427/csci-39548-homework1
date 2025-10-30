@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./Menu.css";
 import menuData from "../data/menuData";
 const KEY = "cart";
@@ -23,6 +23,7 @@ function PriceToNumber(price) {
 function Menu() {
   // load menu Data
   const item = menuData;
+  const [cart, setCart] = useState([]);
 
   // [Repeat Slides]
   const slides = [
@@ -38,11 +39,24 @@ function Menu() {
   const galleryRef = useRef(null);
 
   // for loading cart
-  useEffect(() => {});
+  useEffect(() => {
+    setCart(loadCart());
+  }, []);
+
+  const getQty = (id) => {
+    const found = cart.find((c) => c.id === id);
+    return found ? found.qty : 0;
+  };
+
+  const sync = (cart) => {
+    cart.sort((a, b) => (a.id ?? 1e9) - (b.id ?? 1e9));
+    saveCart(cart);
+    setCart([...cart]);
+  };
 
   function addToCart(menuItem) {
     const cart = loadCart();
-    const idx = cart.findIndex((c) => c.name === menuItem.name);
+    const idx = cart.findIndex((c) => c.id === menuItem.id);
 
     if (idx >= 0) {
       cart[idx].qty += 1;
@@ -55,19 +69,17 @@ function Menu() {
         qty: 1,
       });
     }
-    cart.sort((a, b) => a.id - b.id);
-    saveCart(cart);
+    sync(cart);
   }
   function subFromCart(menuItem) {
     const cart = loadCart();
-    const idx = cart.findIndex((c) => c.name === menuItem.name);
+    const idx = cart.findIndex((c) => c.id === menuItem.id);
 
     if (idx >= 0) {
       cart[idx].qty -= 1;
       if (cart[idx].qty <= 0) cart.splice(idx, 1);
     }
-    cart.sort((a, b) => a.id - b.id);
-    saveCart(cart);
+    sync(cart);
   }
 
   // for mouse scroll
@@ -95,31 +107,34 @@ function Menu() {
             </tr>
           </thead>
           <tbody>
-            {item.map((item, index) => (
-              <tr key={index}>
-                <td className="item-name">{item.name}</td>
-                <td className="item-price">{item.price}</td>
-                <td>
-                  <button
-                    className="add-btn"
-                    type="button"
-                    onClick={() => subFromCart(item)}
-                  >
-                    -
-                  </button>
-                </td>
-                <td className="item-count">{item.qty}</td>
-                <td>
-                  <button
-                    className="add-btn"
-                    type="button"
-                    onClick={() => addToCart(item)}
-                  >
-                    +
-                  </button>
-                </td>
-              </tr>
-            ))}
+            {item.map((item, index) => {
+              const qty = getQty(item.id);
+              return (
+                <tr key={index}>
+                  <td className="item-name">{item.name}</td>
+                  <td className="item-price">{item.price}</td>
+                  <td>
+                    <button
+                      className="add-btn"
+                      type="button"
+                      onClick={() => subFromCart(item)}
+                    >
+                      -
+                    </button>
+                  </td>
+                  <td className="item-count">{qty}</td>
+                  <td>
+                    <button
+                      className="add-btn"
+                      type="button"
+                      onClick={() => addToCart(item)}
+                    >
+                      +
+                    </button>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
