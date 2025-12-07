@@ -8,6 +8,7 @@ import OrderOnline from "./pages/OrderOnline";
 import Myprofile from "./pages/Myprofile";
 import Mycart from "./pages/Mycart";
 import Search from "./pages/Search";
+import Admin from "./pages/Admin";
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/OrderOnline" element={<OrderOnline />} />
+        <Route path="/Admin" element={<Admin />} />
         <Route path="/Myprofile" element={<Myprofile />} />
         <Route path="/Mycart" element={<Mycart />} />
         <Route path="/Search" element={<Search />} />
