@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { FiCircle, FiX } from "react-icons/fi";
 
-import "./Menu.css";
+import "./Admin.css";
 //import menuData from "../data/menuData";
 const API_BASE_URL =
   process.env.REACT_APP_API_BASE_URL || "http://localhost:4000";
@@ -66,6 +66,33 @@ function Admin() {
             })}
           </tbody>
         </table>
+        <div className="edit-section">
+          <div className="add-section">
+            <h3>-- Add Menu --</h3>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Name"
+              required
+            />
+            <input
+              id="price"
+              name="price"
+              type="text"
+              placeholder="price"
+              required
+            />
+            <button type="submit">Add item</button>
+          </div>
+
+          <div className="remove-section">
+            <h3>-- Remove Menu --</h3>
+            <input id="id" name="id" type="text" placeholder="id" required />
+
+            <button type="submit">Remove item</button>
+          </div>
+        </div>
       </div>
     </div>
   );
