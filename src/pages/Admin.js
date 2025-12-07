@@ -12,8 +12,10 @@ function Admin() {
   // load menu Data
   // const item = menuData;
   const [items, setItems] = useState([]);
-
   const [cart, setCart] = useState([]);
+
+  const [newName, setNewName] = useState("");
+  const [newPrice, setNewPrice] = useState("");
 
   // load menu list
   useEffect(() => {
@@ -29,6 +31,44 @@ function Admin() {
 
     fetchMenu();
   }, []);
+
+  // Add item to DB
+  const addItem = async () => {
+    if (!newName || !newPrice) {
+      alert("Name and price are required.");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/menu`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: newName,
+          price: newPrice,
+        }),
+      });
+
+      if (!res.ok) {
+        const msg = await res.json();
+        alert(msg.message);
+        return;
+      }
+
+      const added = await res.json();
+
+      setItems((prev) => [...prev, added]);
+
+      // Initialisation input bot
+      setNewName("");
+      setNewPrice("");
+    } catch (err) {
+      console.error("Add Error:", err);
+      alert("Server error occureed.");
+    }
+  };
 
   const getQty = (id) => {
     const found = cart.find((c) => c.id === id);
@@ -74,6 +114,8 @@ function Admin() {
               name="name"
               type="text"
               placeholder="Name"
+              value={newName}
+              onChange={(e) => setNewName(e.target.value)}
               required
             />
             <input
@@ -81,14 +123,25 @@ function Admin() {
               name="price"
               type="text"
               placeholder="price"
+              value={newPrice}
+              onChange={(e) => setNewPrice(e.target.value)}
               required
             />
-            <button type="submit">Add item</button>
+            <button type="submit" onClick={addItem}>
+              Add item
+            </button>
           </div>
 
           <div className="remove-section">
             <h3>-- Remove Menu --</h3>
-            <input id="id" name="id" type="text" placeholder="id" required />
+            <input
+              id="id"
+              name="id"
+              type="number"
+              placeholder="id"
+              step="1"
+              required
+            />
 
             <button type="submit">Remove item</button>
           </div>
