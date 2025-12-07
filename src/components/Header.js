@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
-import { FiUser, FiShoppingCart, FiSearch, FiMenu, FiX } from "react-icons/fi";
+import {
+  FiUser,
+  FiShoppingCart,
+  FiSearch,
+  FiMenu,
+  FiX,
+  FiTool,
+} from "react-icons/fi";
 
 import "./Header.css";
 
@@ -51,6 +58,14 @@ function Header() {
           </ul>
         </nav>
         <div className="right">
+          <NavLink
+            to="/Admin"
+            className="icon-btn"
+            onClick={() => setIsOpen(false)}
+          >
+            <FiTool />
+          </NavLink>
+
           <NavLink
             to="/MyProfile"
             className="icon-btn"
