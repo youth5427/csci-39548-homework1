@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import "./Menu.css";
-import menuData from "../data/menuData";
+//import menuData from "../data/menuData";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:4000";
+
 const KEY = "cart";
 
 // Local storage
@@ -22,7 +24,9 @@ function PriceToNumber(price) {
 
 function Menu() {
   // load menu Data
-  const item = menuData;
+  // const item = menuData;
+  const [items, setItems] = useState([]);
+
   const [cart, setCart] = useState([]);
 
   // [Repeat Slides]
@@ -37,6 +41,21 @@ function Menu() {
   const repeatCount = 10; // Number of repetitions
   const repeatedSlides = Array(repeatCount).fill(slides).flat();
   const galleryRef = useRef(null);
+
+  // load menu list
+  useEffect(() => {
+    const fetchMenu = async () => {
+      try {
+        const res = await fetch(`${API_BASE_URL}/api/menu`);
+        const data = await res.json();
+        setItems(data);
+      } catch (err) {
+        console.error("Load fail:", err);
+      }
+    };
+
+    fetchMenu();
+  }, []);
 
   // for loading cart
   useEffect(() => {
@@ -117,10 +136,10 @@ function Menu() {
             </tr>
           </thead>
           <tbody>
-            {item.map((item, index) => {
+            {items.map((item) => {
               const qty = getQty(item.id);
               return (
-                <tr key={index.id}>
+                <tr key={item.id}>
                   <td className="item-name">{item.name}</td>
                   <td className="item-price">{item.price}</td>
                   <td>
