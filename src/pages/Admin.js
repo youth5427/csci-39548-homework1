@@ -19,17 +19,17 @@ function Admin() {
   const [removeId, setRemoveId] = useState("");
 
   // load menu list
-  useEffect(() => {
-    const fetchMenu = async () => {
-      try {
-        const res = await fetch(`${API_BASE_URL}/api/menu`);
-        const data = await res.json();
-        setItems(data);
-      } catch (err) {
-        console.error("Load fail:", err);
-      }
-    };
+  const fetchMenu = async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/menu`);
+      const data = await res.json();
+      setItems(data);
+    } catch (err) {
+      console.error("Load fail:", err);
+    }
+  };
 
+  useEffect(() => {
     fetchMenu();
   }, []);
 
@@ -62,7 +62,7 @@ function Admin() {
 
       setItems((prev) => [...prev, added]);
 
-      // Initialisation input bot
+      // Initialisation input boxes
       setNewName("");
       setNewPrice("");
     } catch (err) {
@@ -71,6 +71,7 @@ function Admin() {
     }
   };
 
+  // Remove item
   const removeItem = async () => {
     if (removeId == "") {
       alert("id is required.");
@@ -92,11 +93,40 @@ function Admin() {
 
       setItems((prev) => prev.filter((item) => item.id !== idNumber));
 
+      // Initialisation input boxes
+      setNewName("");
+      setNewPrice("");
       setRemoveId("");
-      alert("Deleted");
     } catch (err) {
       console.error("Delete errorL", err);
       alert("Server error occured.");
+    }
+  };
+
+  // Reset to default
+  const resetItems = async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/menu/seed`, {
+        method: "POST",
+      });
+
+      if (!res.ok) {
+        const msg = await res.json();
+        alert(msg.message);
+        return;
+      }
+
+      await fetchMenu();
+
+      // Initialisation input boxes
+      setNewName("");
+      setNewPrice("");
+      setRemoveId("");
+
+      alert("Reset to default completed.");
+    } catch (err) {
+      console.error("Add Error:", err);
+      alert("Server error occureed.");
     }
   };
 
@@ -180,6 +210,9 @@ function Admin() {
             </button>
           </div>
         </div>
+        <button type="button" onClick={resetItems} className="reset_button">
+          Reset to Default
+        </button>
       </div>
     </div>
   );

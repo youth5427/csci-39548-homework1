@@ -105,6 +105,16 @@
   opacity: 0.95;
   transform: translateY(-1px);
 }
+.reset_button {
+  margin-top: 10px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background: #f0f0f0;
+  color: #111;
+}
 
 /* 반응형: 모바일에서 세로 정렬 */
 @media (max-width: 768px) {
