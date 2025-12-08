@@ -16,6 +16,7 @@ function Admin() {
 
   const [newName, setNewName] = useState("");
   const [newPrice, setNewPrice] = useState("");
+  const [removeId, setRemoveId] = useState("");
 
   // load menu list
   useEffect(() => {
@@ -67,6 +68,35 @@ function Admin() {
     } catch (err) {
       console.error("Add Error:", err);
       alert("Server error occureed.");
+    }
+  };
+
+  const removeItem = async () => {
+    if (removeId == "") {
+      alert("id is required.");
+      return;
+    }
+    const idNumber = Number(removeId);
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/menu/${idNumber}`, {
+        method: "POST",
+      });
+
+      const body = await res.json();
+
+      if (!res.ok) {
+        alert(body.message || "Delete failed");
+        return;
+      }
+
+      setItems((prev) => prev.filter((item) => item.id !== idNumber));
+
+      setRemoveId("");
+      alert("Deleted");
+    } catch (err) {
+      console.error("Delete errorL", err);
+      alert("Server error occured.");
     }
   };
 
@@ -127,7 +157,7 @@ function Admin() {
               onChange={(e) => setNewPrice(e.target.value)}
               required
             />
-            <button type="submit" onClick={addItem}>
+            <button type="button" onClick={addItem}>
               Add item
             </button>
           </div>
@@ -140,10 +170,14 @@ function Admin() {
               type="number"
               placeholder="id"
               step="1"
+              value={removeId}
+              onChange={(e) => setRemoveId(e.target.value)}
               required
             />
 
-            <button type="submit">Remove item</button>
+            <button type="button" onClick={removeItem}>
+              Remove item
+            </button>
           </div>
         </div>
       </div>
