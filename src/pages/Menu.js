@@ -29,8 +29,9 @@ function Menu() {
       const res = await fetch(`${API_BASE_URL}/api/cart/${username}`);
 
       if (res.status == 404) {
-        alert("User does not exist!");
+        alert("User does not exist! Create new account using create button");
         setCart([]);
+        setCartLoaded(false);
         return;
       }
 
@@ -39,7 +40,6 @@ function Menu() {
       }
       const data = await res.json();
 
-      // 서버가 { username, items: [{id, qty}, ...] } 형태로 반환
       const serverItems = data.items || [];
 
       const nextCart = serverItems.map((it) => ({
@@ -53,6 +53,45 @@ function Menu() {
     } catch (err) {
       console.error(err);
       alert("Failed to load cart");
+    }
+  }
+
+  // Create User
+  async function createUser() {
+    if (!username.trim()) {
+      alert("Please enter your name.");
+      return;
+    }
+
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/users`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username }),
+      });
+
+      if (res.status == 409) {
+        alert("User already exist! Choose another name.");
+        setCart([]);
+        setCartLoaded(false);
+        return;
+      }
+
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}`);
+      }
+      const data = await res.json();
+      const serverItems = data.items || [];
+
+      const nextCart = serverItems.map(({ id, qty }) => ({ id, qty }));
+
+      setCart(nextCart);
+
+      setCartLoaded(false);
+      alert(`Create User for ${username}`);
+    } catch (err) {
+      console.error(err);
+      alert("Failed to Create User");
     }
   }
 
@@ -193,6 +232,9 @@ function Menu() {
         ></input>
         <button className="name-btn" type="button" onClick={loadUserCart}>
           View
+        </button>
+        <button className="name-btn" type="button" onClick={createUser}>
+          Create
         </button>
         <table className="menu-table">
           <thead>
