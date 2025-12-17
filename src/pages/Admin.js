@@ -9,7 +9,6 @@ function Admin() {
   // load menu Data
   // const item = menuData;
   const [items, setItems] = useState([]);
-  const [cart] = useState([]);
 
   const [newName, setNewName] = useState("");
   const [newPrice, setNewPrice] = useState("");
