@@ -7,6 +7,7 @@ const cors = require("cors");
 const serverless = require("serverless-http");
 
 const app = express();
+const router = express.Router();
 //const PORT = process.env.PORT || 4000;
 
 app.use(cors());
@@ -235,4 +236,6 @@ app.get("/", (req, res) => {
   res.send("Hello Grilld server!");
 });
 
+app.use("/.netlify/functions/api", router);
+app.use("/", router);
 module.exports.handler = serverless(app);
