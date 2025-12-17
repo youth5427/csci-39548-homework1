@@ -24,7 +24,7 @@ function CartCompo() {
     try {
       const res = await fetch(`${API_BASE_URL}/api/cart/${username}`);
 
-      if (res.status == 404) {
+      if (res.status === 404) {
         alert("User does not exist!");
         setCart([]);
         return;

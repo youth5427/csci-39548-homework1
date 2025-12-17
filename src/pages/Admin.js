@@ -1,17 +1,15 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { FiCircle, FiX } from "react-icons/fi";
 
 import "./Admin.css";
 //import menuData from "../data/menuData";
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "";
 
-const KEY = "cart";
-
 function Admin() {
   // load menu Data
   // const item = menuData;
   const [items, setItems] = useState([]);
-  const [cart, setCart] = useState([]);
+  const [cart] = useState([]);
 
   const [newName, setNewName] = useState("");
   const [newPrice, setNewPrice] = useState("");
@@ -151,7 +149,6 @@ function Admin() {
           </thead>
           <tbody>
             {items.map((item) => {
-              const qty = getQty(item.id);
               return (
                 <tr key={item.id}>
                   <td className="item-id">{item.id}</td>

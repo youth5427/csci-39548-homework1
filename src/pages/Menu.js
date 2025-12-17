@@ -3,13 +3,6 @@ import "./Menu.css";
 //import menuData from "../data/menuData";
 const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "";
 
-const KEY = "cart";
-
-// save as cent
-function PriceToNumber(price) {
-  return Number(price.replace(/[^0-9.]/g, "")) * 100;
-}
-
 function Menu() {
   // Valuables
   const [items, setItems] = useState([]); // items
@@ -27,7 +20,7 @@ function Menu() {
     try {
       const res = await fetch(`${API_BASE_URL}/api/cart/${username}`);
 
-      if (res.status == 404) {
+      if (res.status === 404) {
         alert("User does not exist! Create new account using create button");
         setCart([]);
         setCartLoaded(false);
@@ -69,7 +62,7 @@ function Menu() {
         body: JSON.stringify({ username }),
       });
 
-      if (res.status == 409) {
+      if (res.status === 409) {
         alert("User already exist! Choose another name.");
         setCart([]);
         setCartLoaded(false);
