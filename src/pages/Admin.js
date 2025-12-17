@@ -70,7 +70,7 @@ function Admin() {
 
   // Remove item
   const removeItem = async () => {
-    if (removeId == "") {
+    if (removeId === "") {
       alert("id is required.");
       return;
     }
@@ -125,11 +125,6 @@ function Admin() {
       console.error("Add Error:", err);
       alert("Server error occureed.");
     }
-  };
-
-  const getQty = (id) => {
-    const found = cart.find((c) => c.id === id);
-    return found ? found.qty : 0;
   };
 
   return (
