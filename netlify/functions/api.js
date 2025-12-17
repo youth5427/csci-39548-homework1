@@ -59,7 +59,7 @@ const Cart = mongoose.models.Cart || mongoose.model("Cart", cartItemSchema);
 
 // === Router ===
 // Call menu API
-app.get("/api/menu", async (req, res) => {
+app.get("/menu", async (req, res) => {
   console.log("HIT /menu route");
   try {
     const items = await Menu.find().sort({ id: 1 });
@@ -73,7 +73,7 @@ app.get("/api/menu", async (req, res) => {
 // // (Optional) Initial menu list
 // // Use this in terminal
 // // curl -X POST http://localhost:4000/api/menu/seed
-app.post("/api/menu/seed", async (req, res) => {
+app.post("/menu/seed", async (req, res) => {
   try {
     const data = [
       { id: 0, name: "Cheese Burger", price: "$8.99", sale: 1 },
