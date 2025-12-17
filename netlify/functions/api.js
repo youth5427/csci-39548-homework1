@@ -93,7 +93,7 @@ app.post("/api/menu/seed", async (req, res) => {
 });
 
 // add menu item
-app.post("/api/menu", async (req, res) => {
+app.post("/menu", async (req, res) => {
   try {
     let { name, price } = req.body;
 
@@ -137,7 +137,7 @@ app.post("/api/menu", async (req, res) => {
 });
 
 // Remove menu item
-app.post("/api/menu/:id", async (req, res) => {
+app.post("/menu/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
 
@@ -157,7 +157,7 @@ app.post("/api/menu/:id", async (req, res) => {
 });
 
 // Save cart
-app.post("/api/cart", async (req, res) => {
+app.post("/cart", async (req, res) => {
   try {
     const { username, items } = req.body;
 
@@ -179,7 +179,7 @@ app.post("/api/cart", async (req, res) => {
 });
 
 // load cart
-app.get("/api/cart/:username", async (req, res) => {
+app.get("/cart/:username", async (req, res) => {
   try {
     const username = req.params.username;
 
@@ -196,7 +196,7 @@ app.get("/api/cart/:username", async (req, res) => {
 });
 
 // create user
-app.post("/api/users", async (req, res) => {
+app.post("/users", async (req, res) => {
   try {
     const { username } = req.body;
 
@@ -226,7 +226,7 @@ app.post("/api/users", async (req, res) => {
 });
 
 // Example router
-app.get("/api/", (req, res) => {
+app.get("/", (req, res) => {
   res.send("Hello Grilld server!");
 });
 
