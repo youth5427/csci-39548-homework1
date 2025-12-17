@@ -3,8 +3,7 @@ import { FiCircle, FiX } from "react-icons/fi";
 
 import "./Admin.css";
 //import menuData from "../data/menuData";
-const API_BASE_URL =
-  process.env.REACT_APP_API_BASE_URL || "http://localhost:4000";
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "";
 
 const KEY = "cart";
 
