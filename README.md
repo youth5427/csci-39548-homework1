@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# CSCI 39548 - Homework 1 (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📝 Project Description
 
-## Available Scripts
+This repository contains the assignment for **CSCI 39548: Practical Web Development** at Hunter College(CUNY). This project is a full-stack web application that utilizes **React** for the frontend and **MongoDB** for data storage.
 
-In the project directory, you can run:
+## 🚀 Key Features
 
-### `npm start`
+### 🔐 Admin Management
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Menu Management**: Administrators can Create, Update, and Delete menu items.
+- **Inventory Control**: Real-time updates to the product database via MongoDB.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🛒 Customer Experience
 
-### `npm test`
+- **Shopping Cart**: Users can add and reduce items to their personal shopping cart.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ⚙️ Technical Highlights
 
-### `npm run build`
+- **Full-Stack Integration**: Robust connection between React frontend and Node/Express backend.
+- **Data Persistence**: Secure data storage and retrieval using **MongoDB Atlas**.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🛠️ Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Frontend**: React.js, CSS3
+- **Backend**: Node.js, Express.js
+- **Database**: MongoDB (Mongoose ODM)
+- **Version Control**: Git/GitHub
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 💻 Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Prerequisites
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Prepare [Node.js](https://nodejs.org/) on your machine first.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation & Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/youth5427/csci-39548-homework1.git](https://github.com/youth5427/csci-39548-homework1.git)
+    ```
+2.  **Navigate to the project directory**
+    ```bash
+    cd csci-39548-homework1
+    ```
+3.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+4.  **Run the development server**
+    ```bash
+    npm start
+    ```
+    The application will be available at `http://localhost:3000`.
 
-## Learn More
+## 🔗 Live Demo
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+👉 [View Live Demo](https://csci-39548-homework1.netlify.app/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 👤 Author
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Name**: Suhyeon Yoo
+- **Course**: CSCI 39548 (Practical Web Development)
