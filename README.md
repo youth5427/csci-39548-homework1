@@ -18,7 +18,7 @@ Administrators can create, update, delete menu items. To minimise the project, t
 ### 🛒 Customer Experience
 
 - **Shopping Cart**: Users can add and reduce items to their personal shopping cart.
-- **Inventory Control**: Real-time updates to the product database via MongoDB.
+- **Cart Control**: Real-time updates to the Shopping cart database via MongoDB.
 
 ### ⚙️ Technical Highlights
 
