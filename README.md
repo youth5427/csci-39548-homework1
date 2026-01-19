@@ -4,6 +4,10 @@
 
 This repository contains the assignment for **CSCI 39548: Practical Web Development** at Hunter College(CUNY). This project is a full-stack web application that utilizes **React** for the frontend and **MongoDB** for data storage.
 
+This website describes a **Virtual Restaurant**. It provides customers with information about the restaurant and lets them browse.
+
+Administrators can create, update, delete menu items. To minimise the project, the authentication process has been skipped.
+
 ## 🚀 Key Features
 
 ### 🔐 Admin Management
@@ -14,6 +18,7 @@ This repository contains the assignment for **CSCI 39548: Practical Web Developm
 ### 🛒 Customer Experience
 
 - **Shopping Cart**: Users can add and reduce items to their personal shopping cart.
+- **Inventory Control**: Real-time updates to the product database via MongoDB.
 
 ### ⚙️ Technical Highlights
 
